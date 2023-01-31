@@ -1,0 +1,46 @@
+@font-face {
+  font-family: "Gilroy";
+  font-weight: normal;
+  font-style: normal;
+  src: url("/Gilroy-ExtraBold.woff") format("woff");
+}
+
+/** Fractul SemiBold */
+@font-face {
+  font-family: "Gilroys";
+  font-weight: normal;
+  font-style: normal;
+  src: url("/Gilroy-Light.woff") format("woff");
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Gilroys", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+
+  background-color: #3e3e3e;
+  background-image: url('/bgg.jpg');
+
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1, h2, h3, h4 {
+  font-family: "Gilroy" !important;
+  font-weight: 900;
+}
+
+h2 {
+  font-family: "Gilroy" !important;
+}
+
+.wallet-adapter-button-trigger {background: #4A868E !important;box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);}
