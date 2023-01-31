@@ -22,6 +22,7 @@ body {
 
   background-color: #3e3e3e;
   background-image: url('/bgg.jpg');
+  color:#ffffff8f;
 
 }
 
@@ -44,3 +45,25 @@ h2 {
 }
 
 .wallet-adapter-button-trigger {background: #4A868E !important;box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);}
+.MuiPaper-root {
+  border: 15px solid #1c1c1c;
+  color: rgba(255, 255, 255, 0.753);
+  background-color: #161616;
+}
+.main-info h4 {
+  font-weight: 400;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif !important;
+  font-size: 28px;
+}
+.titles {
+  color: #6ec2cd !important;
+  font-weight: 700;
+}
+.case {display: flex;}
+.case label {margin: 0;}
+.case .case-desc {color:#ffffff75}
+.MuiSlider-markLabelActive {color:#6ec2cd;font-weight: bold;}
+
+@media only screen and (max-width: 600px) {
+.MuiTypography-h1{font-size:50px;line-height: 45px;text-align: center;margin-bottom: 20px;}
+.MuiTextField-root {width: 100%;}}

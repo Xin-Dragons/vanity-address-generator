@@ -44,7 +44,7 @@ const Grind = ({ keypair, setKeypair, reset }) => {
   const [prefix, setPrefix] = useState('');
   const [caseSensitive, setCaseSensitive] = useState(true);
   const [working, setWorking] = useState(false)
-  const [threads, setThreads] = useState(36);
+  const [threads, setThreads] = useState(24);
   const [error, setError] = useState(null)
   const [warning, setWarning] = useState(null)
   
@@ -144,8 +144,8 @@ const Grind = ({ keypair, setKeypair, reset }) => {
 
   return (
     <Stack spacing={2}>
-      <Typography variant="h5">Grind vanity address</Typography>
-      <Stack direction="row" spacing={2} alignItems="center">
+      <Typography variant="h5" className='titles'>Grind vanity address</Typography>
+      <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} alignItems="center">
         <TextField
           error={error}
           color={warning && !error && "warning" || "primary"}
@@ -155,23 +155,26 @@ const Grind = ({ keypair, setKeypair, reset }) => {
           disabled={working}
           helperText={error || warning}
         />
-        <Box>
+        <Box className='case'>
           <FormControlLabel
             control={<Switch checked={caseSensitive}
             onChange={e => setCaseSensitive(e.target.checked)} />}
-            label="Case Sensitive"
+            label=""
             labelPlacement='top'
             disabled={working}
           />
-          <Typography variant="body2">Turm this off to speed up your search.</Typography>
+          <Box><Typography variant="body2" sx={{fontWeight:'bold'}}>Case Sensitive</Typography>
+          <Typography variant="body2" sx={{fontSize:'12px'}} className="case-desc">Turn this off to speed up your search.</Typography>
+          </Box>
+          
         </Box>
       </Stack>
       <Box>
-        <Typography variant="body1">Speed</Typography>
+        <Typography variant="body1" className='titles'>Speed</Typography>
         <Typography variant="body2">Grinding for vanity addresses is a resource intensive action. If your device is running out of memory, try reducing the speed.</Typography>
         <Box padding={2}>
           <Slider
-            value={threads}
+            value={threads} sx={{color:'#3cbccd'}}
             onChange={(e) => setThreads(e.target.value)}
             valueLabelDisplay="auto"
             disabled={working}
@@ -199,9 +202,9 @@ const Grind = ({ keypair, setKeypair, reset }) => {
           />
         </Box>
       </Box>
-      <Stack direction="row" spacing={2}>
-        <Button variant="contained" onClick={keypair ? openConfirmRegenerateModal : getKeypair} disabled={working}>Generate</Button>
-        <Button onClick={abort} color="error" variant="outlined" disabled={!working}>Abort</Button>
+      <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2}>
+        <Button variant="contained" onClick={keypair ? openConfirmRegenerateModal : getKeypair} disabled={working} size="large" sx={{fontWeight:'bold'}}>Generate</Button>
+        <Button onClick={abort} color="error" variant="outlined" disabled={!working} size="large"  sx={{fontWeight:'bold'}}>Abort</Button>
         {
           working && <Spinner small />
         }
@@ -212,7 +215,7 @@ const Grind = ({ keypair, setKeypair, reset }) => {
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
-        <DialogTitle id="alert-dialog-title">
+        <DialogTitle id="alert-dialog-title" sx={{color:'#6ec2cd'}}>
           {"Regenerate address?"}
         </DialogTitle>
         <DialogContent>
@@ -221,8 +224,8 @@ const Grind = ({ keypair, setKeypair, reset }) => {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleRegenerateDialogClose}>Cancel</Button>
-          <Button onClick={confirmRegenerate} autoFocus>
+          <Button onClick={handleRegenerateDialogClose}  sx={{fontWeight:'bold'}}>Cancel</Button>
+          <Button onClick={confirmRegenerate} autoFocus  sx={{fontWeight:'bold'}}>
             Continue
           </Button>
         </DialogActions>
@@ -288,19 +291,19 @@ const Home = () => {
     <Container>
       <Toaster />
       <Stack>
-        <Stack direction="row" alignItems="center" justifyContent="space-between" mt={2}>
+        <Stack direction={{ xs: 'column', sm: 'row' }} alignItems="center" justifyContent="space-between" mt={2}>
           <Image src="/logo.png" width={150} height={150} className={styles.logo} alt="Dandies" />
           <Stack direction="row" alignItems="center" spacing={2}>
-            <Typography variant="h1" sx={{textShadow: '0 0 10px rgba(0, 0, 0, 0.438)', fontSize: '64px' }} color="primary">Vanity address generator</Typography>
+            <Typography variant="h1" sx={{textShadow: '0 0 10px rgba(0, 0, 0, 0.438)', fontSize: '64px', marginBottom: '10px' }} color="primary">Vanity Address Generator</Typography>
           </Stack>
-          <WalletMultiButtonDynamic />
+          {/* <WalletMultiButtonDynamic /> */}
         </Stack>
 
-        <Grid container spacing={3}>
+        <Grid container spacing={3} alignItems="stretch" direction={{ xs: 'column', sm: 'row' }}>
           <Grid item xs={5}>
             <Card>
               <CardContent>
-                <Typography variant="h5" gutterBottom>
+                <Typography variant="h5" gutterBottom className='titles'>
                   Disclaimer
                 </Typography>
                 <Typography variant="body2">
@@ -326,7 +329,7 @@ const Home = () => {
             </Card>
           </Grid>
           <Grid item xs={7}>
-            <Card>
+            <Card  sx={{height:'100%'}}>
               <CardContent>
                 <Grind keypair={keypair} setKeypair={setKeypair} reset={reset} />
               </CardContent>
@@ -338,8 +341,8 @@ const Home = () => {
               <Grid item xs={12}>
                 <Card>
                   <CardContent>
-                    <Typography variant="h5" gutterBottom>Generated address</Typography>
-                    <Stack spacing={2} direction="row">
+                    <Typography variant="h5" gutterBottom className='titles'>Generated address</Typography>
+                    <Stack spacing={2} direction={{ xs: 'column', sm: 'row' }}>
                       <TextField
                         disabled
                         fullWidth
@@ -368,7 +371,7 @@ const Home = () => {
                           label="Private Key"
                         />
                       </FormControl>
-                      <Button variant="contained" onClick={saveSecretKey}>Save</Button>
+                      <Button variant="contained" onClick={saveSecretKey}  sx={{fontWeight:'bold'}}>Save</Button>
                     </Stack>
                   </CardContent>
                 </Card>
