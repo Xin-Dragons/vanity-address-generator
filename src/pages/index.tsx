@@ -291,7 +291,7 @@ const Home = () => {
     <Container>
       <Toaster />
       <Stack>
-        <Stack direction={{ xs: 'column', sm: 'row' }} alignItems="center" justifyContent="space-between" mt={2}>
+        <Stack direction="column" alignItems="center" justifyContent="space-between" mt={2}>
           <Image src="/logo.png" width={150} height={150} className={styles.logo} alt="Dandies" />
           <Stack direction="row" alignItems="center" spacing={2}>
             <Typography variant="h1" sx={{textShadow: '0 0 10px rgba(0, 0, 0, 0.438)', fontSize: '64px', marginBottom: '10px' }} color="primary">Vanity Address Generator</Typography>
@@ -321,10 +321,9 @@ const Home = () => {
                 <Typography variant="body2">
                   Note: It is good practice to use a Ledger to keep your digital assets secure.
                 </Typography>
-                <br />
-                <Typography variant="body2">
-                  Keep your Private Key safe and do not share it with anyone - without it you will lose access to this address and any digital assets stored within. You will not receive a mnemonic, but you can download a JSON file for your safekeeping.
-                </Typography>
+                <br/>
+                <Typography>Do you like this tool?<br/>
+        <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fvanity.dandies.xyz&text=Just+got+a+new+wallet+address+using+@DandiesNFT+Vanity+Address+Generator&hashtags=Dandies%2CVanityaddress%2CSolana&via=DandiesNFT" className='cta'>Spread the word ❤️</a></Typography>
               </CardContent>
             </Card>
           </Grid>
@@ -372,7 +371,9 @@ const Home = () => {
                         />
                       </FormControl>
                       <Button variant="contained" onClick={saveSecretKey}  sx={{fontWeight:'bold'}}>Save</Button>
+                      
                     </Stack>
+                    <Typography sx={{paddingTop: '15px', fontSize: '13px', color: '#c75454'}}>Keep your Private Key safe and do not share it with anyone - without it you will lose access to this address and any digital assets stored within. You will not receive a mnemonic, but you can download a JSON file for your safekeeping.</Typography>
                   </CardContent>
                 </Card>
                 
