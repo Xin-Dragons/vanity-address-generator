@@ -81,7 +81,7 @@ const Grind = ({ keypair, setKeypair, reset }) => {
       setWorking(true);
       reset()
   
-      const workers = [...Array(threads).keys()].map(() => {
+      const workers = Array.from(Array(10).keys()).map(() => {
         const worker = new Worker(new URL('../../public/generate-keypair.worker.js', import.meta.url));
         worker.addEventListener("message", event => {
           setWorking(false)
@@ -175,7 +175,9 @@ const Grind = ({ keypair, setKeypair, reset }) => {
         <Box padding={2}>
           <Slider
             value={threads} sx={{color:'#3cbccd'}}
-            onChange={(e) => setThreads(e.target.value)}
+            onChange={(e: Event & {
+              target: HTMLButtonElement
+            }) => setThreads(parseInt(e.target.value))}
             valueLabelDisplay="auto"
             disabled={working}
             marks={[
