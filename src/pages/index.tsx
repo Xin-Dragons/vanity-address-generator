@@ -154,6 +154,7 @@ const Grind = ({ keypair, setKeypair, reset }) => {
           onChange={e => setPrefix(e.target.value)}
           disabled={working}
           helperText={error || warning}
+          className="prefix"
         />
         <Box className='case'>
           <FormControlLabel
@@ -204,7 +205,7 @@ const Grind = ({ keypair, setKeypair, reset }) => {
           />
         </Box>
       </Box>
-      <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2}>
+      <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} className="button-wrap">
         <Button variant="contained" onClick={keypair ? openConfirmRegenerateModal : getKeypair} disabled={working} size="large" sx={{fontWeight:'bold'}}>Generate</Button>
         <Button onClick={abort} color="error" variant="outlined" disabled={!working} size="large"  sx={{fontWeight:'bold'}}>Abort</Button>
         {

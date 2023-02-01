@@ -64,7 +64,11 @@ h2 {
 .case .case-desc {color:#ffffff75}
 .MuiSlider-markLabelActive {color:#6ec2cd;font-weight: bold;}
 .cta {border:1px solid #6cbec9;display: block;padding: 10px 10px;text-align: center;color:#6ec2cd;font-weight: 700;text-transform: uppercase;border-radius: 5px;margin-top: 10px;}
+.prefix {width: 50%;}
+.button-wrap button {width: 50%;}
 
 @media only screen and (max-width: 600px) {
 .MuiTypography-h1{font-size:50px;line-height: 45px;text-align: center;margin-bottom: 20px;}
-.MuiTextField-root {width: 100%;}}
+.MuiTextField-root {width: 100%;}
+.prefix {width: 100%;}
+.button-wrap button {width: 100%;}}
